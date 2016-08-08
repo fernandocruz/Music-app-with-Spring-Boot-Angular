@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container" ng-app="musicApp" ng-controller="MusicController">
+        <div class="page-header">
+            <h1>Music App</h1>
+        </div>
+        <form role="form" ng-submit="addMusic(newMusic)">
+            <div class="form-group">
+                <label for="txMusicName">Nome</label>
+                <input name="txMusicName" placeholder="Nome da Música" class="form-control" ng-model="newMusic.name" />
+            </div>
+            <div class="form-group">
+                <label for="txGroupName">Grupo</label>
+                <input name="txGroupName" placeholder="Nome do Grupo" class="form-control" ng-model="newMusic.group" />
+            </div>
+            <div class="form-group">
+                <label for="txDuration">Duração</label>
+                <input name="txDuration" placeholder="Tempo de duração" class="form-control" ng-model="newMusic.duration" />
+            </div>
+            <button type="submit" class="btn btn-default">Cadastrar</button>
+        </form>
+        <hr />
+        <br/>
+        <br/>
+        <h1>Buscar Músicas</h1>
+        <hr />
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="name" placeholder="Informe o nome da música..." />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="findByName(name)"  title="search">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+        <br/>
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Nome</th>
+                <th>Banda</th>
+                <th>Duração</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="music in musics">
+                <td>{{music.name}}</td>
+                <td>{{music.group}}</td>
+                <td>{{music.duration}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert" role="alert" ng-hide="musics && musics.length > 0">
+          Não há músicas para serem exibidas.
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <script type="text/javascript" src="./app/app.js"></script>
+    <script type="text/javascript" src="./app/musicController.js"></script>
+    <script type="text/javascript" src="./app/musicService.js"></script>
+</body>
+
+</html>

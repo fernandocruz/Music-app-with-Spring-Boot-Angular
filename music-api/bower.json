@@ -1,0 +1,24 @@
+{
+  "name": "music-api",
+  "version": "0.0.0",
+  "authors": [
+    "fernando <fernando.cruz@clickitts.com>"
+  ],
+  "description": "Music",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
